@@ -1,12 +1,21 @@
 import "./index.css";
+import { BrowserRouter, Route, Routes } from "react-router";
+import { lazy, Suspense } from "react";
+const HomePage = lazy(() => import('./pages/HomePage'))
 
 function App() {
   return (
     <div>
-      <h1>Food Delivery</h1>
-      <h3> hello this is a new project.</h3>
-      <p>this is coming from ronish branch.</p>
-      <p>This is coming from kusum branch.</p>
+     <BrowserRouter>
+
+<Suspense fallback={<p>Loading.....</p>}>
+  <Routes>
+      <Route path="/" element={<HomePage />} />
+
+ </Routes>
+</Suspense>
+
+</BrowserRouter>
     </div>
   );
 }
